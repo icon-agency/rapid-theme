@@ -1,0 +1,105 @@
+// Generic HTML elements that could be in WYSIWYG or elsewhere.
+
+// Block quotes in WYSIWYG don't have a class .blockquote
+// make a generic blockquote.
+blockquote {
+  @include rem(margin-top, $padding-extra-large);
+  @include rem(margin-bottom, $padding-spacing-extra-medium);
+  @include rem(padding, $padding-base 0);
+  @include rem(border-left-width, 16px);
+
+  padding-left: var(--bs-gutter-x);
+  border-left-color: $clr-blockquote-border;
+  border-left-style: solid;
+
+  h4 {
+    @include rem(padding-bottom, $padding-extra-large);
+
+    display: flex;
+    align-items: center;
+  }
+
+  .field + .field {
+    margin-top: map-get($spacers, 2);
+  }
+
+  &.blockquote {
+    &--box,
+    &--outline-box {
+      @include rem(padding, $padding-base * 2);
+      @include rem(border-width, 1px);
+
+      border-style: solid;
+    }
+
+    &--box {
+      border-radius: 0;
+      border-color: $palette-black;
+      background-color: $clr-blockquote-bg;
+    }
+
+    &--outline-box {
+      @include rem(border-radius, 16px);
+
+      border-color: $clr-borders;
+    }
+  }
+
+  [class^='icon--'] > .svg-inline--fa[data-fa-pseudo-element='::before'] {
+    @include rem(padding-right, $padding-extra-large);
+  }
+}
+
+picture,
+.picture {
+  display: inline-block;
+}
+
+audio,
+video {
+  width: 100%;
+}
+
+.paragraph--type--media {
+  @include border-radius();
+
+  padding: map-get($spacers, 3);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+
+  &:has(.ratio) {
+    max-width: map-get($container-max-widths, 'lg');
+    margin: 0 auto;
+  }
+
+  img,
+  video,
+  iframe {
+    @include border-radius();
+  }
+}
+
+.intro {
+  @include rem(font-size, 24px);
+
+  @include media-breakpoint-up(lg) {
+    @include rem(font-size, 32px);
+  }
+}
+
+.flag-text {
+  margin-left: 10px;
+}
+
+.statsBanner {
+  padding: 50px 0;
+  background: #f283d6;
+}
+
+.statsBanner__intro {
+  margin-bottom: 60px;
+}
+
+.statsBannerCard {
+  visibility: hidden;
+  font-size: 2rem;
+}
