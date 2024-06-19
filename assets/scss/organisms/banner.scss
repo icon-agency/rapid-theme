@@ -27,10 +27,6 @@
     order: -1;
   }
 
-  &__content-background {
-    color: $clr-text;
-    background-color: $clr-banner-bg;
-  }
 
   @include media-breakpoint-up(lg) {
     @include rem(margin-bottom, 100px);
@@ -45,7 +41,7 @@
     &__content {
       width: 90%;
     }
-
+®
     &__content-background--with-image {
       .banner__wrapper {
         position: relative;
